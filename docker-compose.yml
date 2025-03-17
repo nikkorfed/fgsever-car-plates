@@ -1,6 +1,17 @@
 version: "3.8"
 
 services:
+  car-plates-server:
+    container_name: fgsever-car-plates-server
+    image: ghcr.io/nikkorfed/fgsever-car-plates-server
+    build:
+      context: .
+      args:
+        - NODE_VERSION
+    ports:
+      - ${PORT}:${PORT}
+    restart: unless-stopped
+    env_file: .env
   car-plates-database:
     container_name: fgsever-car-plates-database
     image: postgres:14-alpine
