@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  car-plates-database:
+    container_name: fgsever-car-plates-database
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    restart: unless-stopped
+    env_file: .env
